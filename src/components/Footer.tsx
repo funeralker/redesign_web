@@ -13,8 +13,8 @@ export default Footer;
 
 const FooterContainer = styled.footer`
   padding: 20px;
-  background-color: #333;
-  color: white;
+  background-color: white;
+  color: black;
   text-align: center;
   margin-top: auto;
 `;

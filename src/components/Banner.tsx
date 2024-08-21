@@ -4,7 +4,7 @@ import styled from 'styled-components';
 const Banner: React.FC = () => {
   return (
     <BannerContainer>
-      <h1>Welcome to Our Shop</h1>
+      <BannerText>Welcome to Our Store</BannerText>
     </BannerContainer>
   );
 };
@@ -12,8 +12,15 @@ const Banner: React.FC = () => {
 export default Banner;
 
 const BannerContainer = styled.div`
-  padding: 60px 20px;
-  background-color: #f4f4f4;
-  text-align: center;
-  color: #333;
+  width: 100%;
+  height: 25vh;
+  background-color: #D3D3D3;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
+const BannerText = styled.h1`
+  font-size: 36px;
 `;
