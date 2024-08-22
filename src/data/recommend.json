@@ -1,0 +1,33 @@
+[
+    {
+      "name": "Product 1",
+      "price": 29.99,
+      "shortDescription": "This is a great product.",
+      "longDescription": "This is a more detailed description of Product 1. It has many features and benefits.",
+      "photo": "https://via.placeholder.com/400x200",
+      "thumbnailPhoto1": "https://via.placeholder.com/100",
+      "thumbnailPhoto2": "https://via.placeholder.com/100",
+      "thumbnailPhoto3": "https://via.placeholder.com/100"
+    },
+    {
+      "name": "Product 2",
+      "price": 39.99,
+      "shortDescription": "This is another great product.",
+      "longDescription": "This is a more detailed description of Product 2. It's known for its reliability.",
+      "photo": "https://via.placeholder.com/400x200",
+      "thumbnailPhoto1": "https://via.placeholder.com/100",
+      "thumbnailPhoto2": "https://via.placeholder.com/100",
+      "thumbnailPhoto3": "https://via.placeholder.com/100"
+    },
+    {
+      "name": "Product 3",
+      "price": 19.99,
+      "shortDescription": "Yet another amazing product.",
+      "longDescription": "This is a more detailed description of Product 3. It's affordable and efficient.",
+      "photo": "https://via.placeholder.com/400x200",
+      "thumbnailPhoto1": "https://via.placeholder.com/100",
+      "thumbnailPhoto2": "https://via.placeholder.com/100",
+      "thumbnailPhoto3": "https://via.placeholder.com/100"
+    }
+  ]
+  

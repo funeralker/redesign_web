@@ -18,7 +18,7 @@ const Header: React.FC = () => {
     <NavBar>
       <LeftSection>
         <HomeIcon>
-          <FaHome size={36} />
+          <FaHome size={48} />
         </HomeIcon>
       </LeftSection>
       <RightSection>
@@ -34,7 +34,7 @@ const Header: React.FC = () => {
           <SearchBarWrapper>
             <SearchBar
               type="text"
-              placeholder="Input keywords"
+              placeholder="Find something"
               value={searchText}
               onChange={(e) => setSearchText(e.target.value)}
             />
@@ -78,11 +78,13 @@ const NavBar = styled.header`
 const LeftSection = styled.div`
   display: flex;
   align-items: center;
+  padding-left: 40px;
 `;
 
 const RightSection = styled.div`
   display: flex;
   align-items: center;
+  padding-right: 40px;
 `;
 
 const HomeIcon = styled.div`

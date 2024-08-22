@@ -1,34 +1,66 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import ProductCard from './ProductCard';
 
-const ProductList: React.FC = () => {
-  const products = [
-    { name: 'Product 1', price: 29.99, description: 'This is a great product.' },
-    { name: 'Product 2', price: 39.99, description: 'This is another great product.' },
-    { name: 'Product 3', price: 19.99, description: 'Yet another amazing product.' },
-    { name: 'Product 4', price: 49.99, description: 'A product you can\'t miss.' },
-    { name: 'Product 5', price: 59.99, description: 'This product is top-notch.' },
-    { name: 'Product 6', price: 24.99, description: 'You\'ll love this product.' },
-  ];
+// Define the Product interface
+interface Product {
+  name: string;
+  price: number;
+  shortDescription: string;
+  longDescription: string;
+  photo: string;
+  thumbnailPhoto1: string;
+  thumbnailPhoto2: string;
+  thumbnailPhoto3: string;
+}
+
+// Define the props interface including title and data
+interface ProductListProps {
+  title?: string;
+  data: Product[]; // Pass data as a prop
+}
+
+const ProductList: React.FC<ProductListProps> = ({ title, data }) => {
+  const [products, setProducts] = useState<Product[]>([]);
+
+  useEffect(() => {
+    setProducts(data); // Set the products from props data
+  }, [data]);
 
   return (
-    <ProductGrid>
-      {products.map((product, index) => (
-        <CardWrapper key={product.name} isOdd={index % 2 !== 0}>
-          <ProductCard
-            name={product.name}
-            price={product.price}
-            description={product.description}
-            isOdd={index % 2 !== 0}
-          />
-        </CardWrapper>
-      ))}
-    </ProductGrid>
+    <Container>
+      {title && <Title>{title}</Title>}
+      <ProductGrid>
+        {products.map((product, index) => (
+          <CardWrapper key={product.name} isOdd={index % 2 !== 0}>
+            <ProductCard
+              name={product.name}
+              price={product.price}
+              description={product.shortDescription}
+              isOdd={index % 2 !== 0}
+              product={product} 
+            />
+          </CardWrapper>
+        ))}
+      </ProductGrid>
+    </Container>
   );
 };
 
 export default ProductList;
+
+const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
+
+const Title = styled.h2`
+  margin: 20px 0;
+  font-size: 2em;
+  font-weight: bold;
+  color: #333;
+`;
 
 const ProductGrid = styled.div`
   display: grid;

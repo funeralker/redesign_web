@@ -1,4 +1,5 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 
 interface ProductCardProps {
@@ -6,11 +7,18 @@ interface ProductCardProps {
   price: number;
   description: string;
   isOdd: boolean;
+  product: any;
 }
 
-const ProductCard: React.FC<ProductCardProps> = ({ name, price, description, isOdd }) => {
+const ProductCard: React.FC<ProductCardProps> = ({ name, price, description, isOdd, product }) => {
+  const navigate = useNavigate();
+
+  const handleClick = () => {
+    navigate(`/product/${name}`, { state: { product } });
+  };
+
   return (
-    <Card isOdd={isOdd}>
+    <Card isOdd={isOdd} onClick={handleClick}>
       <ProductName>{name}</ProductName>
       <CardContent>
         <ProductImage src="https://via.placeholder.com/200" alt={name} />
@@ -40,6 +48,7 @@ const Card = styled.div<{ isOdd: boolean }>`
 
   &:hover {
     transform: scale(1.05);
+    cursor: pointer;
   }
 `;
 
@@ -65,7 +74,7 @@ const ProductImage = styled.img`
 const ProductDetails = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-between; 
   height: 100%;
   flex-grow: 1;
 `;
@@ -75,10 +84,13 @@ const ProductDescription = styled.p`
   font-size: 1em;
   color: #555;
   flex-grow: 1;
+  display: flex;
+  align-items: center; 
 `;
 
 const ProductPrice = styled.p`
   color: #333;
   font-weight: bold;
   margin: 10px 0 0 0;
+  align-self: flex-end; 
 `;
