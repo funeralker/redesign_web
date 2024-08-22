@@ -13,7 +13,7 @@ export default Banner;
 
 const BannerContainer = styled.div`
   width: 100%;
-  height: 25vh;
+  height: 35vh;
   background-color: #D3D3D3;
   color: white;
   display: flex;
