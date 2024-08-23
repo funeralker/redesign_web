@@ -1,14 +1,25 @@
 import React from 'react';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import ProductList from '../components/ProductList';
-import productData from '../data/recommend.json'; 
+import productData from '../data/recommend.json';
 
 const ProductDetailPage: React.FC = () => {
   const location = useLocation();
   const { product } = location.state;
+  const navigate = useNavigate();
+
+  const handleBuyNow = () => {
+    navigate('/order', {
+      state: {
+        photo: product.photo,
+        name: product.name,
+        price: product.price,
+      },
+    });
+  };
 
   return (
     <Container>
@@ -24,13 +35,13 @@ const ProductDetailPage: React.FC = () => {
         </ImageSection>
         <InfoSection>
           <ProductName>{product.name}</ProductName>
-          <ProductTag>Type Tag</ProductTag>
+          <ProductTag>{product.type}</ProductTag>
           <ProductDescription>{product.longDescription}</ProductDescription>
           <ProductPrice>${product.price.toFixed(2)}</ProductPrice>
-          <BuyButton>Buy Now</BuyButton>
+          <BuyButton onClick={handleBuyNow}>Buy Now</BuyButton>
         </InfoSection>
       </Content>
-      <ProductList title="Recommend You" data={productData}/>
+      <ProductList title="Recommend You" data={productData} />
       <Footer />
     </Container>
   );
@@ -47,8 +58,13 @@ const Container = styled.div`
 const Content = styled.div`
   flex: 1;
   display: flex;
+  flex-direction: column;
   padding: 20px;
   gap: 20px;
+
+  @media (min-width: 768px) {
+    flex-direction: row;
+  }
 `;
 
 const ImageSection = styled.div`
@@ -85,9 +101,13 @@ const InfoSection = styled.div`
 `;
 
 const ProductName = styled.h1`
-  font-size: 2em;
+  font-size: 1.5em;
   text-align: center;
   margin-bottom: 20px;
+
+  @media (min-width: 768px) {
+    font-size: 2em;
+  }
 `;
 
 const ProductTag = styled.span`
@@ -96,36 +116,55 @@ const ProductTag = styled.span`
   color: #007bff;
   padding: 5px 10px;
   border-radius: 20px;
-  font-size: 0.9em;
+  font-size: 0.8em;
   margin-bottom: 20px;
+
+  @media (min-width: 768px) {
+    font-size: 0.9em;
+  }
 `;
 
 const ProductDescription = styled.p`
   flex-grow: 1;
   text-align: left;
   margin-bottom: 20px;
+  font-size: 0.9em;
+
+  @media (min-width: 768px) {
+    font-size: 1em;
+  }
 `;
 
 const ProductPrice = styled.p`
-  font-size: 2em;
+  font-size: 1.5em;
   color: #333;
   font-weight: bold;
   text-align: right;
   margin-bottom: 20px;
+
+  @media (min-width: 768px) {
+    font-size: 2em;
+  }
 `;
 
 const BuyButton = styled.button`
   align-self: flex;
   background-color: #90ee90;
   color: white;
-  padding: 15px 30px;
+  padding: 10px 20px;
   border: none;
   border-radius: 8px;
   cursor: pointer;
-  font-size: 1.2em;
+  font-size: 1em;
   margin-bottom: 20px;
 
   &:hover {
     background-color: #77dd77;
   }
+
+  @media (min-width: 768px) {
+    padding: 15px 30px;
+    font-size: 1.2em;
+  }
 `;
+

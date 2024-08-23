@@ -11,8 +11,8 @@ const AppRoutes: React.FC = () => {
     <Router>
       <Routes>
         <Route path="/" element={<HomePage />} />
-        <Route path="/product/:name" element={<ProductDetailPage />} />
-        <Route path="/order/:name" element={<OrderPage />} />
+        <Route path="/product" element={<ProductDetailPage />} />
+        <Route path="/order" element={<OrderPage />} />
         <Route path="/result" element={<CategorySerachPage />} />
       </Routes>
       <BackToTop /> 

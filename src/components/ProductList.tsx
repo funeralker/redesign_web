@@ -5,6 +5,7 @@ import ProductCard from './ProductCard';
 // Define the Product interface
 interface Product {
   name: string;
+  type: string;
   price: number;
   shortDescription: string;
   longDescription: string;
@@ -14,17 +15,16 @@ interface Product {
   thumbnailPhoto3: string;
 }
 
-// Define the props interface including title and data
 interface ProductListProps {
   title?: string;
-  data: Product[]; // Pass data as a prop
+  data: Product[];
 }
 
 const ProductList: React.FC<ProductListProps> = ({ title, data }) => {
   const [products, setProducts] = useState<Product[]>([]);
 
   useEffect(() => {
-    setProducts(data); // Set the products from props data
+    setProducts(data);
   }, [data]);
 
   return (

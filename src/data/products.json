@@ -2,6 +2,7 @@
     {
       "name": "Product 1",
       "price": 29.99,
+      "type": "Electric Cars",
       "shortDescription": "This is a great product.",
       "longDescription": "This is a more detailed description of Product 1. It has many features and benefits.",
       "photo": "https://via.placeholder.com/400x200",
@@ -12,6 +13,7 @@
     {
       "name": "Product 2",
       "price": 39.99,
+      "type": "Electric Cars",
       "shortDescription": "This is another great product.",
       "longDescription": "This is a more detailed description of Product 2. It's known for its reliability.",
       "photo": "https://via.placeholder.com/400x200",
@@ -22,6 +24,7 @@
     {
       "name": "Product 3",
       "price": 19.99,
+      "type": "Electric Cars",
       "shortDescription": "Yet another amazing product.",
       "longDescription": "This is a more detailed description of Product 3. It's affordable and efficient.",
       "photo": "https://via.placeholder.com/400x200",
@@ -32,6 +35,7 @@
     {
       "name": "Product 4",
       "price": 49.99,
+      "type": "Electric Cars",
       "shortDescription": "A product you can't miss.",
       "longDescription": "This is a more detailed description of Product 4. It's popular among many users.",
       "photo": "https://via.placeholder.com/400x200",
@@ -42,6 +46,7 @@
     {
       "name": "Product 5",
       "price": 59.99,
+      "type": "Electric Cars",
       "shortDescription": "This product is top-notch.",
       "longDescription": "This is a more detailed description of Product 5. It offers premium quality.",
       "photo": "https://via.placeholder.com/400x200",
@@ -52,6 +57,7 @@
     {
       "name": "Product 6",
       "price": 24.99,
+      "type": "Electric Cars",
       "shortDescription": "You'll love this product.",
       "longDescription": "This is a more detailed description of Product 6. It's a customer favorite.",
       "photo": "https://via.placeholder.com/400x200",
@@ -62,6 +68,7 @@
     {
       "name": "Product 7",
       "price": 44.99,
+      "type": "Electric Cars",
       "shortDescription": "High quality at a great price.",
       "longDescription": "This is a more detailed description of Product 7. It's known for its durability.",
       "photo": "https://via.placeholder.com/400x200",
@@ -72,6 +79,7 @@
     {
       "name": "Product 8",
       "price": 34.99,
+      "type": "Electric Cars",
       "shortDescription": "A must-have item.",
       "longDescription": "This is a more detailed description of Product 8. It's highly recommended by users.",
       "photo": "https://via.placeholder.com/400x200",
@@ -82,6 +90,7 @@
     {
       "name": "Product 9",
       "price": 54.99,
+      "type": "Electric Cars",
       "shortDescription": "An excellent choice.",
       "longDescription": "This is a more detailed description of Product 9. It has great reviews.",
       "photo": "https://via.placeholder.com/400x200",

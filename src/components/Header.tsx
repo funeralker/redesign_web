@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import { FaHome, FaSearch, FaBars, FaTimes } from 'react-icons/fa';
 
 const Header: React.FC = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [searchText, setSearchText] = useState('');
+  const navigate = useNavigate();
 
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
@@ -12,6 +14,16 @@ const Header: React.FC = () => {
 
   const clearSearch = () => {
     setSearchText('');
+  };
+
+  const handleNavClick = (type: string) => {
+    navigate('/result', { state: { type, title: type } });
+  };
+
+  const handleSearch = () => {
+    if (searchText.trim()) {
+      navigate('/result', { state: { searchText, title: 'Search Result' } });
+    }
   };
 
   return (
@@ -23,12 +35,12 @@ const Header: React.FC = () => {
       </LeftSection>
       <RightSection>
         <NavOptions>
-          <NavOption>Electric Cars</NavOption>
-          <NavOption>Electric Bicycles</NavOption>
-          <NavOption>Robots</NavOption>
-          <NavOption>Helicopters</NavOption>
-          <NavOption>Watches</NavOption>
-          <NavOption>Other</NavOption>
+          <NavOption onClick={() => handleNavClick('Electric Cars')}>Electric Cars</NavOption>
+          <NavOption onClick={() => handleNavClick('Electric Bicycles')}>Electric Bicycles</NavOption>
+          <NavOption onClick={() => handleNavClick('Robots')}>Robots</NavOption>
+          <NavOption onClick={() => handleNavClick('Helicopters')}>Helicopters</NavOption>
+          <NavOption onClick={() => handleNavClick('Watches')}>Watches</NavOption>
+          <NavOption onClick={() => handleNavClick('Other')}>Other</NavOption>
         </NavOptions>
         <SearchSection>
           <SearchBarWrapper>
@@ -40,7 +52,7 @@ const Header: React.FC = () => {
             />
             {searchText && <ClearButton onClick={clearSearch}><FaTimes /></ClearButton>}
           </SearchBarWrapper>
-          <SearchButton>
+          <SearchButton onClick={handleSearch}>
             <FaSearch size={20} color="#333" />
           </SearchButton>
         </SearchSection>
@@ -50,12 +62,12 @@ const Header: React.FC = () => {
       </RightSection>
       {menuOpen && (
         <MobileMenu>
-          <MobileNavOption>Electric Cars</MobileNavOption>
-          <MobileNavOption>Electric Bicycles</MobileNavOption>
-          <MobileNavOption>Robots</MobileNavOption>
-          <MobileNavOption>Helicopters</MobileNavOption>
-          <MobileNavOption>Watches</MobileNavOption>
-          <MobileNavOption>Other</MobileNavOption>
+          <MobileNavOption onClick={() => handleNavClick('Electric Cars')}>Electric Cars</MobileNavOption>
+          <MobileNavOption onClick={() => handleNavClick('Electric Bicycles')}>Electric Bicycles</MobileNavOption>
+          <MobileNavOption onClick={() => handleNavClick('Robots')}>Robots</MobileNavOption>
+          <MobileNavOption onClick={() => handleNavClick('Helicopters')}>Helicopters</MobileNavOption>
+          <MobileNavOption onClick={() => handleNavClick('Watches')}>Watches</MobileNavOption>
+          <MobileNavOption onClick={() => handleNavClick('Other')}>Other</MobileNavOption>
         </MobileMenu>
       )}
     </NavBar>
@@ -63,6 +75,9 @@ const Header: React.FC = () => {
 };
 
 export default Header;
+
+// Styled components as defined previously
+
 
 const NavBar = styled.header`
   display: flex;

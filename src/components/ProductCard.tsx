@@ -14,7 +14,8 @@ const ProductCard: React.FC<ProductCardProps> = ({ name, price, description, isO
   const navigate = useNavigate();
 
   const handleClick = () => {
-    navigate(`/product/${name}`, { state: { product } });
+    navigate(`/product`, { state: { product } });
+    window.location.reload();
   };
 
   return (
