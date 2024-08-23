@@ -184,7 +184,7 @@ const ProductPrice = styled.p`
   color: #333;
   font-weight: bold;
   align-self: flex-end;
-  margin-top: -10px; /* Adjusted to reduce space */
+  margin-top: -10px; 
 `;
 
 const RightSection = styled.div`
