@@ -14,6 +14,7 @@ const OrderDetailPage: React.FC = () => {
   const [termsAccepted, setTermsAccepted] = useState(false);
   const [errors, setErrors] = useState<{ [key: string]: string }>({});
   const [resetPopupVisible, setResetPopupVisible] = useState(false);
+  const [checkoutPopupVisible, setCheckoutPopupVisible] = useState(false);
 
   const validateForm = () => {
     const newErrors: { [key: string]: string } = {};
@@ -35,8 +36,15 @@ const OrderDetailPage: React.FC = () => {
     if (Object.keys(formErrors).length > 0) {
       setErrors(formErrors);
     } else {
+      setCheckoutPopupVisible(true);
+    }
+  };
+
+  const confirmCheckout = (confirm: boolean) => {
+    if (confirm) {
       console.log('Checkout successful');
     }
+    setCheckoutPopupVisible(false); 
   };
 
   const handleReset = (e: React.MouseEvent<HTMLButtonElement>) => {
@@ -130,6 +138,18 @@ const OrderDetailPage: React.FC = () => {
             <PopupButtonContainer>
               <PopupButton onClick={() => confirmReset(true)}>Yes</PopupButton>
               <PopupButton onClick={() => confirmReset(false)}>No</PopupButton>
+            </PopupButtonContainer>
+          </PopupContent>
+        </PopupOverlay>
+      )}
+
+      {checkoutPopupVisible && (
+        <PopupOverlay>
+          <PopupContent>
+            <p>Do you really want to proceed with the checkout?</p>
+            <PopupButtonContainer>
+              <PopupButton onClick={() => confirmCheckout(true)}>Yes</PopupButton>
+              <PopupButton onClick={() => confirmCheckout(false)}>No</PopupButton>
             </PopupButtonContainer>
           </PopupContent>
         </PopupOverlay>
