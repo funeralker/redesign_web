@@ -22,7 +22,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ name, price, description, isO
     <Card isOdd={isOdd} onClick={handleClick}>
       <ProductName>{name}</ProductName>
       <CardContent>
-        <ProductImage src="https://via.placeholder.com/200" alt={name} />
+        <ProductImage src={product.photo} alt={name} />
         <ProductDetails>
           <ProductDescription>{description}</ProductDescription>
           <ProductPrice>${price.toFixed(2)}</ProductPrice>

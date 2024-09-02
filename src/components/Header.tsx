@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
-import { FaHome, FaSearch, FaBars, FaTimes } from 'react-icons/fa';
+import { FaSearch, FaBars, FaTimes } from 'react-icons/fa';
 
 const Header: React.FC = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -14,6 +14,10 @@ const Header: React.FC = () => {
 
   const clearSearch = () => {
     setSearchText('');
+  };
+
+  const handleHome = () => {
+    navigate('/');
   };
 
   const handleNavClick = (type: string) => {
@@ -29,8 +33,8 @@ const Header: React.FC = () => {
   return (
     <NavBar>
       <LeftSection>
-        <HomeIcon>
-          <FaHome size={48} />
+        <HomeIcon onClick={handleHome}>
+          <img src="/img/home.jpg" alt="Home" />
         </HomeIcon>
       </LeftSection>
       <RightSection>

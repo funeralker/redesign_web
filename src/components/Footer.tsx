@@ -1,15 +1,22 @@
 import React from 'react';
 import styled from 'styled-components';
-import { FaHome, FaInstagram, FaFacebook, FaYoutube } from 'react-icons/fa';
+import { useNavigate } from 'react-router-dom';
+import { FaInstagram, FaFacebook, FaYoutube } from 'react-icons/fa';
 
 const Footer: React.FC = () => {
+  const navigate = useNavigate();
+
+  const handleHome = () => {
+    navigate('/');
+  };
+
   return (
     <FooterContainer>
       <Divider />
       <FooterContent>
         <FooterSection>
-          <HomeIcon>
-            <FaHome size={32} />
+          <HomeIcon onClick={handleHome}>
+            <img src="/img/home.jpg" alt="Home" />
           </HomeIcon>
           <SocialIcons>
             <FaInstagram size={20} />

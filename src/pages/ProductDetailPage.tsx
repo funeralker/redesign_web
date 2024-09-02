@@ -75,20 +75,25 @@ const ImageSection = styled.div`
 
 const MainImage = styled.img`
   width: 100%;
+  max-width: 400px; 
   height: auto;
+  max-height: 400px; 
   object-fit: cover;
   border-radius: 8px;
   margin-bottom: 20px;
+  align-self: center;
 `;
 
 const ThumbnailWrapper = styled.div`
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
 `;
 
 const Thumbnail = styled.img`
   width: 30%;
+  max-width: 300px; 
   height: auto;
+  max-height: 300px; 
   object-fit: cover;
   border-radius: 8px;
 `;
@@ -125,6 +130,7 @@ const ProductTag = styled.span`
 `;
 
 const ProductDescription = styled.p`
+  white-space: pre-line;
   flex-grow: 1;
   text-align: left;
   margin-bottom: 20px;
